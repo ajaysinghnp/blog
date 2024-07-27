@@ -18,7 +18,6 @@ else
 	banner "No Gem file found! Skipping bundle install"
 fi
 
-
 # Adding aliases for git
 banner "Adding git aliases"
 if [ -f /etc/bash.bashrc ]; then

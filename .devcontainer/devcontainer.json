@@ -3,6 +3,9 @@
 	"image": "mcr.microsoft.com/devcontainers/jekyll:0-bullseye",
 	"features": {
 	},
+	"containerEnv": {
+		"TZ": "Asia/Kathmandu"
+	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [
