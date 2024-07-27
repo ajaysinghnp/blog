@@ -23,3 +23,5 @@ verifyln "Failed to set git email: ${USER_EMAIL}"
 banner "Setting up safe workspace: ${containerWorkspaceFolder}"
 git config --global --add safe.directory ${containerWorkspaceFolder}
 verifyln "Failed to set safe workspace: ${containerWorkspaceFolder}"
+
+banner "Post Start Script Completed"
