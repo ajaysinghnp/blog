@@ -30,7 +30,11 @@
 				"GitHub.copilot",
 				"GitHub.vscode-pull-request-github",
 				"streetsidesoftware.code-spell-checker"
-			]
+			],
+			"settings": {
+				"files.eol": "\r\n",
+				"editor.unfoldOnClickAfterEndOfLine": true
+			}
 		}
 	},
 
