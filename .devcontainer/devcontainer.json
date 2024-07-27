@@ -13,8 +13,8 @@
 	],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
-	"postCreateCommand": "sh .devcontainer/init.sh",
+	"postStartCommand": "sh .devcontainer/post-start.sh",
+	"postCreateCommand": "sh .devcontainer/post-create.sh",
 
 	// Configure tool-specific properties.
 	"customizations": {
