@@ -13,7 +13,7 @@
 	],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postStartCommand": "sh .devcontainer/post-start.sh",
+	"postStartCommand": "sh .devcontainer/post-start.sh ${containerWorkspaceFolder}",
 	"postCreateCommand": "sh .devcontainer/post-create.sh",
 
 	// Configure tool-specific properties.
