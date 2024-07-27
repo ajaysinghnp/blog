@@ -18,5 +18,7 @@
     "sissel",
     "strscan",
     "webrick"
-  ]
+  ],
+  "files.eol": "\r\n",
+  "editor.unfoldOnClickAfterEndOfLine": true
 }
