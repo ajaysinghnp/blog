@@ -3,6 +3,8 @@
 # Loading common functions
 . .devcontainer/utils.sh
 
+banner "Running Post Create Script"
+
 # Install the version of Bundler.
 banner "Installing the version of Bundler"
 if [ -f Gemfile.lock ] && grep "BUNDLED WITH" Gemfile.lock >/dev/null; then

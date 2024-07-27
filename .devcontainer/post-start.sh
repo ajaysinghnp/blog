@@ -3,6 +3,8 @@
 # Load common functions
 . .devcontainer/utils.sh
 
+banner "Running Post Start Script"
+
 # Set up the workspace
 USER_NAME="Ajay Singh"
 USER_EMAIL="admin@ajaysingh.com.np"
