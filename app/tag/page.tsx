@@ -1,6 +1,8 @@
 import { allPosts as posts } from "@/.contentlayer/generated";
 import TagsSection from "@/components/blog/tags";
 import PostsSection from "@/components/blog/posts";
+import { cn } from "@/lib/utils";
+import { angelina } from "@/components/local-fonts";
 
 const Circle = () => {
   return <div className="h-12 w-12 bg-green-500/60 rounded-full" />;
@@ -11,7 +13,7 @@ const TagsPage = () => {
     <main className="mt-20 flex flex-1 flex-col gap-12 justify-center items-center">
       {/* heading */}
       <div className="flex justify-center items-center">
-        <h1 className="text-5xl">
+        <h1 className={cn("text-5xl", angelina.className)}>
           Find my
           <span className="text-purple-500 px-2">Blogs</span>
           here

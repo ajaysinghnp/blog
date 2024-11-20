@@ -2,6 +2,8 @@ import { allPosts as posts } from "@/.contentlayer/generated";
 import { getTags, type Tag } from "@/data/blog";
 import TagsSection from "@/components/blog/tags";
 import PostsSection from "@/components/blog/posts";
+import { cn } from "@/lib/utils";
+import { angelina } from "@/components/local-fonts";
 
 type Props = {
   params: {
@@ -28,7 +30,7 @@ const TagsPage = ({ params }: Props) => {
     <main className="mt-20 flex flex-1 flex-col gap-12 justify-center items-center">
       {/* heading */}
       <div className="flex justify-center items-center">
-        <h1 className="text-5xl">
+        <h1 className={cn("text-5xl", angelina.className)}>
           Find my
           <span className="text-purple-500 px-2">{tag?.label} Blogs</span>
           here

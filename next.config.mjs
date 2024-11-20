@@ -4,8 +4,6 @@ import { withContentlayer } from "next-contentlayer";
 const nextConfig = {
   distDir: "build",
   output: "export",
-  basePath: process.env.NODE_ENV === "development" ? "" : "/blog",
-  assetPrefix: process.env.NODE_ENV === "development" ? "" : "/blog",
   reactStrictMode: true,
   images: {
     unoptimized: true,
