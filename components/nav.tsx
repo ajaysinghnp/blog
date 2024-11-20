@@ -3,7 +3,7 @@ import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Github } from "lucide-react";
-import { usePathname } from 'next/navigation'
+import { usePathname } from "next/navigation";
 
 import { navigation } from "@/data/navigation";
 import { angelina } from "@/components/local-fonts";
@@ -18,8 +18,13 @@ interface Props {
 
 export const Navigation: React.FC<Props> = ({ gitTheme = false }: Props) => {
   const ref = useRef<HTMLElement>(null);
+  const [currentUrl, setCurrentUrl] = useState("");
   const pathname = usePathname();
   const [isIntersecting, setIntersecting] = useState(true);
+
+  const url = process.env.GITHUB_PAGES
+    ? "https://ajaysingh.com.np"
+    : "localhost:3000";
 
   useEffect(() => {
     if (!ref.current) return;
@@ -31,14 +36,28 @@ export const Navigation: React.FC<Props> = ({ gitTheme = false }: Props) => {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    // Check if the code is running on the client side
+    if (process) {
+      // Access the current page URL using window.location
+      setCurrentUrl(window.location.hostname);
+    }
+  }, []);
+
+  // const url = currentUrl !== "" ? currentUrl : "localhost:3000";
+  // console.log(`url: ${url}`);
+
   return (
-    <header ref={ref} className="mb-[calc(2rem_+_0.55rem)] lg:mb-[calc(3rem_+_0.55rem)]">
+    <header
+      ref={ref}
+      className="mb-[calc(2rem_+_0.55rem)] lg:mb-[calc(3rem_+_0.55rem)]"
+    >
       <div
         className={cn(
           "fixed inset-x-0 top-0 z-50 backdrop-blur duration-200 border-b",
-          isIntersecting ?
-            "bg-zinc-900/0 border-transparent" :
-            "bg-zinc-900/500  border-zinc-800"
+          isIntersecting
+            ? "bg-zinc-900/0 border-transparent"
+            : "bg-zinc-900/500  border-zinc-800"
         )}
       >
         <div className="container max-w-[90%] flex flex-row items-center justify-between p-2 mx-auto">
@@ -55,10 +74,12 @@ export const Navigation: React.FC<Props> = ({ gitTheme = false }: Props) => {
                 {navigation.map((item) => (
                   <li key={item.href}>
                     <Link
-                      href={item.href}
+                      href={`${url}${item.href}`}
                       className={cn(
                         "duration-500 text-zinc-500 hover:text-zinc-300",
-                        pathname.includes(item.href) ? "text-purple-600/80 hover:text-purple-600" : ""
+                        pathname.includes(item.href)
+                          ? "text-purple-600/80 hover:text-purple-600"
+                          : ""
                       )}
                     >
                       {item.name}
@@ -69,7 +90,11 @@ export const Navigation: React.FC<Props> = ({ gitTheme = false }: Props) => {
             </nav>
             <div className="flex gap-2 items-center">
               <Link
-                href={gitTheme ? `${socialMedia.github.theme}` : `${socialMedia.github.href}/${socialMedia.github.domain}`}
+                href={
+                  gitTheme
+                    ? `${socialMedia.github.theme}`
+                    : `${socialMedia.github.href}/${socialMedia.github.domain}`
+                }
                 target="_blank"
                 rel="noopener noreferrer"
                 className="duration-200 text-zinc-300 hover:text-zinc-100"
@@ -81,6 +106,6 @@ export const Navigation: React.FC<Props> = ({ gitTheme = false }: Props) => {
           </div>
         </div>
       </div>
-    </header >
+    </header>
   );
 };
