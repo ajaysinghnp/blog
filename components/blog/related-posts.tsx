@@ -2,6 +2,7 @@ import React from "react";
 import { Separator } from "../ui/separator";
 import { Post, allPosts as posts } from "@/.contentlayer/generated";
 import Link from "next/link";
+import { basepath } from "@/data/navigation";
 
 interface Props {
   tags?: string[];
@@ -27,7 +28,7 @@ const RelatedPosts = ({ tags, slug }: Props) => {
             key={post.slug}
             className="text-md font-normal text-zinc-400 hover:text-white duration-1000"
           >
-            <Link href={`/blog/post/${post.slug}`}>{post.title}</Link>
+            <Link href={`${basepath}/post/${post.slug}`}>{post.title}</Link>
           </li>
         ))}
       </ul>

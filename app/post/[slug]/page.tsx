@@ -3,6 +3,7 @@ import { Post, allPosts as posts } from "@/.contentlayer/generated";
 import { calculateReadingTime, slugify } from "@/lib/strings";
 import { Tag } from "lucide-react";
 import Link from "next/link";
+import { basepath } from "@/data/navigation";
 
 interface Props {
   params: {
@@ -23,7 +24,7 @@ const BlogPage = ({ params }: Props) => {
           </p>
           {post?.tags?.map((tag) => (
             <Link
-              href={`/blog/tag/${slugify(tag)}`}
+              href={`${basepath}/tag/${slugify(tag)}`}
               key={tag}
               className="flex gap-1 p-1 hover:text-white transition duration-1000"
             >

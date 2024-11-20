@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import { sortSlugAlpha, sortSlugCount } from "@/lib/strings";
+import { basepath } from "@/data/navigation";
 
 const TagsSection = () => {
   const tags = getTags().sort(sortSlugAlpha);
@@ -14,11 +15,10 @@ const TagsSection = () => {
             buttonVariants({ variant: "outline" }),
             "bg-transparent pt-3 hover:bg-purple-500/60 hover:text-white transition duration-1000 relative group"
           )}
-          href={`/tag/${
-            tag.slug.toLocaleLowerCase() === "all"
-              ? ""
-              : tag.slug.toLocaleLowerCase()
-          }`}
+          href={`${basepath}/tag/${tag.slug.toLocaleLowerCase() === "all"
+            ? ""
+            : tag.slug.toLocaleLowerCase()
+            }`}
           key={tag.slug}
         >
           {tag.label}{" "}

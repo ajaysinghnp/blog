@@ -5,6 +5,7 @@ import { calculateReadingTime, formatDate, slugify } from "@/lib/strings";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 import { Post } from "@/.contentlayer/generated";
+import { basepath } from "@/data/navigation";
 
 interface Props {
   posts: Post[];
@@ -21,7 +22,7 @@ const PostsSection = ({ posts }: Props) => {
           <div className="flex justify-between text-sm">
             <div className="flex gap-1">
               {post.tags?.map((tag) => (
-                <Link href={`/tag/${slugify(tag)}`} key={tag}>
+                <Link href={`${basepath}/tag/${slugify(tag)}`} key={tag}>
                   <div
                     className="flex gap-1 justify-between pt-1 bg-zinc-600/60 border border-slate-600/60 hover:bg-purple-500/60 px-2 rounded text-white transition duration-1000"
                     key={tag}
@@ -36,7 +37,7 @@ const PostsSection = ({ posts }: Props) => {
               {calculateReadingTime(post.body.raw)}
             </p>
           </div>
-          <Link href={`/post/${post.slug}`}>
+          <Link href={`${basepath}/post/${post.slug}`}>
             <h2 className="text-2xl hover:text-purple-500 transition duration-1000">
               {post.title}
               <span className="block text-sm text-muted-foreground">
@@ -60,7 +61,7 @@ const PostsSection = ({ posts }: Props) => {
                 {formatDate(post.updated_at)}
               </p>
             </div>
-            <Link href={`/post/${post.slug}`}>
+            <Link href={`${basepath}/post/${post.slug}`}>
               <button
                 className={cn(
                   buttonVariants({ variant: "ghost" }),
