@@ -18,13 +18,8 @@ interface Props {
 
 export const Navigation: React.FC<Props> = ({ gitTheme = false }: Props) => {
   const ref = useRef<HTMLElement>(null);
-  const [currentUrl, setCurrentUrl] = useState("");
   const pathname = usePathname();
   const [isIntersecting, setIntersecting] = useState(true);
-
-  const url = process.env.GITHUB_PAGES
-    ? "https://ajaysingh.com.np"
-    : "localhost:3000";
 
   useEffect(() => {
     if (!ref.current) return;
@@ -35,17 +30,6 @@ export const Navigation: React.FC<Props> = ({ gitTheme = false }: Props) => {
     observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
-
-  useEffect(() => {
-    // Check if the code is running on the client side
-    if (process) {
-      // Access the current page URL using window.location
-      setCurrentUrl(window.location.hostname);
-    }
-  }, []);
-
-  // const url = currentUrl !== "" ? currentUrl : "localhost:3000";
-  // console.log(`url: ${url}`);
 
   return (
     <header
@@ -74,7 +58,7 @@ export const Navigation: React.FC<Props> = ({ gitTheme = false }: Props) => {
                 {navigation.map((item) => (
                   <li key={item.href}>
                     <Link
-                      href={`${url}${item.href}`}
+                      href={item.href}
                       className={cn(
                         "duration-500 text-zinc-500 hover:text-zinc-300",
                         pathname.includes(item.href)
