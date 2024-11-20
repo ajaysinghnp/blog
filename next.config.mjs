@@ -4,7 +4,6 @@ import { withContentlayer } from "next-contentlayer";
 const nextConfig = {
   distDir: "build",
   output: "export",
-  basePath: process.env.GITHUB_PAGES ? "/blog" : "",
   assetPrefix: process.env.GITHUB_PAGES ? "/blog" : "",
   reactStrictMode: true,
   images: {

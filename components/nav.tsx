@@ -3,9 +3,8 @@ import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Github } from "lucide-react";
-import { usePathname } from "next/navigation";
 
-import { navigation } from "@/data/navigation";
+import { gitEnv, navigation } from "@/data/navigation";
 import { angelina } from "@/components/local-fonts";
 import LogoImage from "@/public/favicon/favicon-32x32.png";
 import { socialMedia } from "@/data/social";
@@ -18,7 +17,6 @@ interface Props {
 
 export const Navigation: React.FC<Props> = ({ gitTheme = false }: Props) => {
   const ref = useRef<HTMLElement>(null);
-  const pathname = usePathname();
   const [isIntersecting, setIntersecting] = useState(true);
 
   useEffect(() => {
@@ -58,10 +56,10 @@ export const Navigation: React.FC<Props> = ({ gitTheme = false }: Props) => {
                 {navigation.map((item) => (
                   <li key={item.href}>
                     <Link
-                      href={item.href}
+                      href={item.href !== "/blog" ? item.href : gitEnv ? "/blog" : "/"}
                       className={cn(
                         "duration-500 text-zinc-500 hover:text-zinc-300",
-                        pathname.includes(item.href)
+                        item.href === "/blog"
                           ? "text-purple-600/80 hover:text-purple-600"
                           : ""
                       )}

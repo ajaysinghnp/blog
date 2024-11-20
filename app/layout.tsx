@@ -94,7 +94,7 @@ export default function RootLayout({
           <Particles className="animate-fade-in" quantity={150} />
           <div className="relative">
             <div className="relative my-6 max-w-[90%] mx-auto">
-              <Navigation gitTheme />
+              <Navigation />
               <div className="w-full mx-auto flex flex-1 mb-12">{children}</div>
               <Footer />
             </div>
