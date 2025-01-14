@@ -12,7 +12,7 @@ export const socialMedia = {
   twitter: {
     href: "https://x.com/erajaysinghnp",
     label: "Twitter",
-    handle: "@erajaysinghnp",
+    handle: "@ajaysinghnp",
   },
   linkedin: {
     href: "https://linkedin.com/in/ajaysinghnp",
