@@ -17,7 +17,7 @@ const slugify = (value) =>
     .replace(/^-+|-+$/g, "");
 
 const dir = path.join("posts", slugify(category));
-const file = path.join(dir, `${slugify(title)}.mdx`);
+const file = path.join(dir, `${slugify(title)}.md`);
 
 await mkdir(dir, { recursive: true });
 await writeFile(
