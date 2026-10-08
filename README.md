@@ -1,6 +1,11 @@
-# Blog Posts Repo
+# Blog content
 
-This is the public repo for the `/blog` for the `https://ajaysingh.com.np/` containing all the posts in the markdown folder automatically fetched and displayed on the site over the github API.
+Posts for ajaysingh.com.np/blog, served through the GitHub API (no build step).
+
+- Posts live in `contents/posts/<slug>.mdx`. The filename is the URL slug.
+- Frontmatter: `title`, `excerpt`, `author`, `tags` (list), `created_at`, `updated_at`.
+- Add `published: false` to hide a draft.
+- Pushing to the configured branch refreshes the site through a webhook.
 
 ## Content Structure & Conventions
 
