@@ -6,6 +6,7 @@ import matter from "gray-matter";
 import { z } from "zod";
 
 const POSTS_DIR = "posts";
+const ASSETS_DIR = "assets";
 const KEBAB = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const RESERVED = new Set(["tag", "post", "api"]); // URL segments the portfolio already uses
 
@@ -52,10 +53,17 @@ async function checkPost(rel, category, slug, ext) {
     fail(rel, `does not compile: ${error.message}`);
   }
 
+  const assetBase = path.join(ASSETS_DIR, category, slug);
+
   for (const [, target] of content.matchAll(/!\[[^\]]*\]\(([^)\s]+)/g)) {
     if (/^(https?:|data:|\/|#)/.test(target)) continue;
-    const file = path.join(path.dirname(rel), decodeURI(target.split(/[?#]/)[0]));
-    if (!(await exists(file))) fail(rel, `image not found: ${target}`);
+
+    const file = path.join(assetBase, decodeURI(target.split(/[?#]/)[0]));
+    if (path.relative(assetBase, file).startsWith("..")) {
+      fail(rel, `image must live in ${assetBase}/: ${target}`);
+    } else if (!(await exists(file))) {
+      fail(rel, `image not found: ${target} (expected in ${assetBase}/)`);
+    }
   }
 }
 
