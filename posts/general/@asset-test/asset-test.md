@@ -8,7 +8,7 @@ created_at: 2026-10-08T12:40:00Z
 
 ## Image
 
-![Asset test diagram](/assets/general/asset-test/diagram.svg)
+![Asset test diagram](./diagram.svg)
 
 ## Done
 
