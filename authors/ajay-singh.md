@@ -2,7 +2,7 @@
 id: ajay-singh
 name: Ajay Singh
 role: Developer and writer
-avatar: https://ajaysingh.com.np/images/author.png
+avatar: ajay-singh.png
 location: Kathmandu, Nepal
 github: ajaysinghnp
 website: https://ajaysingh.com.np
