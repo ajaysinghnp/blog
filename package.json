@@ -1,7 +1,7 @@
 {
   "name": "blog-content",
   "scripts": {
-    "validate": "node scripts/validate.mjs",
+    "validate": "node scripts/validate.mjs && node scripts/validate-authors.mjs",
     "new": "node scripts/new-post.mjs",
     "format": "prettier --write \"posts/**/*.{md,mdx}\"",
     "format:check": "prettier --check \"posts/**/*.{md,mdx}\"",
