@@ -1,0 +1,17 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "files.eol": "\n",
+  "eslint.useFlatConfig": true,
+  "cSpell.words": [
+    "cheatsheet",
+    "cheatsheets",
+    "contentlayer",
+    "countrydetails",
+    "quoteless",
+    "sankatmochan"
+  ]
+}
