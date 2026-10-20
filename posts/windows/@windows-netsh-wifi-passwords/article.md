@@ -23,7 +23,7 @@ This guide starts with basic Command Prompt commands, then improves the output w
 
 ![Windows Terminal showing netsh wlan commands](./hero-image.jpg)
 
-*Image by [Stefan Schweihofer](https://pixabay.com/users/stux-12364/) via [Pixabay](https://pixabay.com/).*
+_Image by [Stefan Schweihofer](https://pixabay.com/users/stux-12364/) via [Pixabay](https://pixabay.com/)._
 
 ## Before you begin
 
