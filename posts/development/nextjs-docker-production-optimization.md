@@ -254,12 +254,12 @@ BuildKit cache mounts take this one step further by preserving reusable package 
 
 ### Cache the right things
 
-| Cache target | Purpose |
-| --- | --- |
+| Cache target        | Purpose                                                      |
+| ------------------- | ------------------------------------------------------------ |
 | Docker build layers | Reuse completed instructions when their inputs are unchanged |
-| pnpm store | Reuse downloaded package content |
-| Next.js build cache | Potentially reuse compiler and bundler work |
-| Build context | Avoid unnecessary file transfers and cache invalidation |
+| pnpm store          | Reuse downloaded package content                             |
+| Next.js build cache | Potentially reuse compiler and bundler work                  |
+| Build context       | Avoid unnecessary file transfers and cache invalidation      |
 
 Next.js build caching requires additional care. Its cache directory and the relevant BuildKit mount should be configured deliberately, especially when using different build environments or architectures.
 
