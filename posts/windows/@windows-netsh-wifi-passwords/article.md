@@ -19,6 +19,7 @@ Windows remembers Wi-Fi networks you have connected to, so you can reconnect wit
 
 This guide starts with basic Command Prompt commands, then improves the output with PowerShell, and finishes with a script and a double-click launcher that export the details to a local file.
 
+> [!WARNING]
 > **Privacy and permission:** Use these commands only on a Windows computer and Wi-Fi profiles you own or are authorized to administer. The `key=clear` option and exported files can reveal passwords in plain text. Store the output securely and delete it when you no longer need it. Do not share exported credentials publicly.
 
 ![Windows Terminal showing netsh wlan commands](./hero-image.jpg)
